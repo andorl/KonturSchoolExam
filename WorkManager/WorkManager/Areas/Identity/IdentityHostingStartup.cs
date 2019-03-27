@@ -9,18 +9,20 @@ using WorkManager.Areas.Identity.Data;
 using WorkManager.Models;
 
 [assembly: HostingStartup(typeof(WorkManager.Areas.Identity.IdentityHostingStartup))]
+
 namespace WorkManager.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup
     {
         public void Configure(IWebHostBuilder builder)
         {
-            builder.ConfigureServices((context, services) => {
+            builder.ConfigureServices((context, services) =>
+            {
                 services.AddDbContext<WorkManagerDbContext>(options =>
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("WorkManagerDbContextConnection")));
 
-                services.AddDefaultIdentity<WorkManagerUser>()
+                services.AddDefaultIdentity<User>()
                     .AddEntityFrameworkStores<WorkManagerDbContext>();
             });
         }

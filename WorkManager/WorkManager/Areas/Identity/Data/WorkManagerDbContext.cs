@@ -9,7 +9,7 @@ using WorkManager.Areas.Identity.Data;
 
 namespace WorkManager.Models
 {
-    public class WorkManagerDbContext : IdentityDbContext<WorkManagerUser>
+    public class WorkManagerDbContext : IdentityDbContext<User>
     {
         public WorkManagerDbContext(DbContextOptions<WorkManagerDbContext> options)
             : base(options)

@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Identity;
 
 namespace WorkManager.Areas.Identity.Data
 {
-    // Add profile data for application users by adding properties to the WorkManagerUser class
-    public class WorkManagerUser : IdentityUser
+    // Add profile data for application users by adding properties to the User class
+    public class User : IdentityUser
     {
     }
 }
