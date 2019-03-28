@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using WorkManager.Areas.Identity.Data;
+using WorkManager.Models;
 
-namespace WorkManager.Models
+namespace WorkManager.Areas.Identity.Data
 {
     public sealed class WorkManagerDbContext : IdentityDbContext<AppUser>
     {
