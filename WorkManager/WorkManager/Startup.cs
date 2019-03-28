@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WorkManager.Areas.Identity.Data;
+using WorkManager.Models;
 
 namespace WorkManager
 {
@@ -32,6 +34,13 @@ namespace WorkManager
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            services.AddDbContext<WorkManagerDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("WorkManagerDbContextConnection")));
+
+            services.AddDefaultIdentity<AppUser>()
+                .AddEntityFrameworkStores<WorkManagerDbContext>()
+                .AddDefaultTokenProviders(); //added
 
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
