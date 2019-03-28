@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WorkManager.Areas.Identity.Data;
 
 namespace WorkManager.Migrations
 {
     [DbContext(typeof(WorkManagerDbContext))]
-    partial class WorkManagerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190328042156_Third")]
+    partial class Third
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -190,25 +192,17 @@ namespace WorkManager.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime?>("Deadline");
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("Difficulty");
-
-                    b.Property<string>("Duration");
-
-                    b.Property<string>("Priority");
+                    b.Property<int>("Payment");
 
                     b.Property<string>("Title");
 
-                    b.Property<string>("UserId");
+                    b.Property<int>("UserId");
 
-                    b.Property<int>("WorkStatus");
+                    b.Property<string>("UserId1");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId1");
 
                     b.ToTable("Works");
                 });
@@ -262,7 +256,7 @@ namespace WorkManager.Migrations
                 {
                     b.HasOne("WorkManager.Models.AppUser", "User")
                         .WithMany("Works")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId1");
                 });
 #pragma warning restore 612, 618
         }

@@ -42,7 +42,7 @@ namespace WorkManager.Controllers
                 return Forbid();
             }
 
-            return BadRequest();
+            return BadRequest(ModelState);
         }
 
         [HttpPost]
@@ -61,7 +61,7 @@ namespace WorkManager.Controllers
                 return Unauthorized();
             }
 
-            return BadRequest();
+            return BadRequest(ModelState);
         }
     }
 }

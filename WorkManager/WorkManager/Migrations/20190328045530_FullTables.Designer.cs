@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WorkManager.Areas.Identity.Data;
 
 namespace WorkManager.Migrations
 {
     [DbContext(typeof(WorkManagerDbContext))]
-    partial class WorkManagerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190328045530_FullTables")]
+    partial class FullTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
