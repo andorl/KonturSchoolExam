@@ -135,7 +135,7 @@ namespace WorkManager.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("WorkManager.Areas.Identity.Data.User", b =>
+            modelBuilder.Entity("WorkManager.Areas.Identity.Data.AppUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -196,7 +196,7 @@ namespace WorkManager.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("WorkManager.Areas.Identity.Data.User")
+                    b.HasOne("WorkManager.Areas.Identity.Data.AppUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -204,7 +204,7 @@ namespace WorkManager.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("WorkManager.Areas.Identity.Data.User")
+                    b.HasOne("WorkManager.Areas.Identity.Data.AppUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -217,7 +217,7 @@ namespace WorkManager.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("WorkManager.Areas.Identity.Data.User")
+                    b.HasOne("WorkManager.Areas.Identity.Data.AppUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -225,7 +225,7 @@ namespace WorkManager.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("WorkManager.Areas.Identity.Data.User")
+                    b.HasOne("WorkManager.Areas.Identity.Data.AppUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

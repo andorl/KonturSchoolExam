@@ -9,12 +9,24 @@ using WorkManager.Areas.Identity.Data;
 
 namespace WorkManager.Models
 {
-    public class WorkManagerDbContext : IdentityDbContext<User>
+    public sealed class WorkManagerDbContext : IdentityDbContext<AppUser>
     {
         public WorkManagerDbContext(DbContextOptions<WorkManagerDbContext> options)
             : base(options)
         {
+            Database.EnsureCreated();
+
+            /*if (Users.Any())
+            {
+                return;
+            }
+
+            Users.AddRange();
+
+            SaveChanges();*/
         }
+
+        public DbSet<Work> Works { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -22,8 +22,9 @@ namespace WorkManager.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("WorkManagerDbContextConnection")));
 
-                services.AddDefaultIdentity<User>()
-                    .AddEntityFrameworkStores<WorkManagerDbContext>();
+                services.AddDefaultIdentity<AppUser>()
+                    .AddEntityFrameworkStores<WorkManagerDbContext>()
+                    .AddDefaultTokenProviders(); //added
             });
         }
     }
