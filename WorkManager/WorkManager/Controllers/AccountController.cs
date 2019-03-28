@@ -38,6 +38,8 @@ namespace WorkManager.Controllers
                     await signInManager.SignInAsync(user, isPersistent: true);
                     return Ok();
                 }
+
+                return Forbid();
             }
 
             return BadRequest();
@@ -51,9 +53,15 @@ namespace WorkManager.Controllers
             {
                 var result = await signInManager
                     .PasswordSignInAsync(data.Name, data.Password, isPersistent: true, lockoutOnFailure: false);
+                if (result.Succeeded)
+                {
+                    return Ok();
+                }
+
+                return Unauthorized();
             }
 
-            return SignIn(HttpContext.User, HttpContext.User.Identity?.AuthenticationType ?? "nothing");
+            return BadRequest();
         }
     }
 }
